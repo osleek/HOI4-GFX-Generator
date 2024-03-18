@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/osleek/HOI4-GFX-Generator/assets/143276252/d8653a0e-2264-43b2-857c-c2bf33c53202" />
+</p>
+
 # ENGLISH
 ## Introduction
 
