@@ -149,7 +149,7 @@ namespace HOI4_GFX_Generator
                 }
             }
         }
-
+        // Сало лох
         private void button5_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
