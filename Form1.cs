@@ -168,7 +168,6 @@ namespace HOI4_GFX_Generator
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                // Если чекбокс не отмечен, очистите список файлов.
                 if (!checkBox2.Checked)
                 {
                     selectedFiles.Clear();
@@ -180,7 +179,6 @@ namespace HOI4_GFX_Generator
         }
         private void button7_Click(object sender, EventArgs e)
         {
-            // Если чекбокс не отмечен, очистите текстовые поля.
             if (!checkBox2.Checked)
             {
                 textBox3.Clear();
@@ -200,7 +198,6 @@ namespace HOI4_GFX_Generator
 
                 string relativePath = fileDirectory.Remove(0, index).Replace("\\", "/");
 
-                // Проверьте значения параметров из текстовых полей
                 int noOfFrames;
                 if (!int.TryParse(numericUpDown1.Text, out noOfFrames))
                 {
