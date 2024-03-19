@@ -41,6 +41,8 @@ namespace HOI4_GFX_Generator
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -65,6 +67,8 @@ namespace HOI4_GFX_Generator
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog3 = new System.Windows.Forms.OpenFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button10 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -123,7 +127,7 @@ namespace HOI4_GFX_Generator
             this.checkBox1.AutoSize = true;
             this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.BottomRight;
             this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox1.Location = new System.Drawing.Point(648, 476);
+            this.checkBox1.Location = new System.Drawing.Point(649, 438);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(111, 17);
             this.checkBox1.TabIndex = 7;
@@ -142,6 +146,8 @@ namespace HOI4_GFX_Generator
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.checkBox3);
             this.tabPage1.Controls.Add(this.checkBox1);
             this.tabPage1.Controls.Add(this.button5);
             this.tabPage1.Controls.Add(this.button4);
@@ -157,6 +163,28 @@ namespace HOI4_GFX_Generator
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "GFX & Shine";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(679, 480);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 13);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Version: 0.0.0.0";
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox3.Location = new System.Drawing.Point(696, 415);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkBox3.Size = new System.Drawing.Size(64, 17);
+            this.checkBox3.TabIndex = 13;
+            this.checkBox3.Text = "Idea .gfx";
+            this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // textBox2
             // 
@@ -185,7 +213,7 @@ namespace HOI4_GFX_Generator
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(684, 447);
+            this.button1.Location = new System.Drawing.Point(685, 386);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 10;
@@ -194,6 +222,7 @@ namespace HOI4_GFX_Generator
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.button9);
             this.tabPage2.Controls.Add(this.numericUpDown3);
             this.tabPage2.Controls.Add(this.numericUpDown2);
@@ -358,8 +387,10 @@ namespace HOI4_GFX_Generator
             this.textBox3.BackColor = System.Drawing.SystemColors.Menu;
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.Location = new System.Drawing.Point(18, 13);
+            this.textBox3.MaxLength = 999999999;
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
+            this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox3.Size = new System.Drawing.Size(505, 317);
             this.textBox3.TabIndex = 7;
             // 
@@ -404,11 +435,32 @@ namespace HOI4_GFX_Generator
             // 
             this.openFileDialog3.FileName = "openFileDialog3";
             // 
+            // button10
+            // 
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Location = new System.Drawing.Point(668, 7);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(116, 23);
+            this.button10.TabIndex = 22;
+            this.button10.Text = "Check update";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(679, 480);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 13);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Version: 0.0.0.0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 559);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -461,6 +513,10 @@ namespace HOI4_GFX_Generator
         private System.Windows.Forms.NumericUpDown numericUpDown3;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 
