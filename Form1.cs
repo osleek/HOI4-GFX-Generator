@@ -51,30 +51,30 @@ namespace HOI4_GFX_Generator
         {
             try
             {
-                // URL of the version file on GitHub
+
                 string versionInfoUrl = "https://hoi4gfxgenerator.neocities.org/version.txt";
 
-                // Get the information about the latest version
+
                 WebClient webClient = new WebClient();
                 string latestVersion = webClient.DownloadString(versionInfoUrl).Trim();
 
-                // Current version of the application
+
                 string currentVersion = Application.ProductVersion;
 
-                // Compare versions
+
                 if (latestVersion != currentVersion)
                 {
                     DialogResult dialogResult = MessageBox.Show("An update is available. Latest version: " + latestVersion + ". Do you want to download it now?", "Update Available", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        // Open the download URL in the default browser
+
                         System.Diagnostics.Process.Start("https://github.com/osleek/HOI4-GFX-Generator/releases/latest/download/HOI4.GFX.Generator.exe");
                     }
                 }
             }
             catch
             {
-                // Ничего не делать, если проверка обновлений не удалась
+
             }
         }
 
@@ -82,7 +82,7 @@ namespace HOI4_GFX_Generator
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                // Если чекбокс не отмечен, очистите текстовые поля.
+
                 if (!checkBox1.Checked)
                 {
                     textBox1.Clear();
