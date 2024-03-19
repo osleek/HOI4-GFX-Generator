@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Globalization;
-using System.Net;
 
 namespace HOI4_GFX_Generator
 {
@@ -37,46 +36,8 @@ namespace HOI4_GFX_Generator
             toolTip1.SetToolTip(this.numericUpDown1, "Number of frames");
             toolTip1.SetToolTip(this.numericUpDown2, "Defines the length of time to pause for after an animation loop");
             toolTip1.SetToolTip(this.checkBoxPlayOnShow, "Defines whether the animations starts playing when visible");
-            label5.Text = "Version: " + Application.ProductVersion;
-            label6.Text = "Version: " + Application.ProductVersion;
-            this.Load += new EventHandler(Form1_Load);
         }
         ToolTip toolTip1 = new ToolTip();
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            CheckForUpdates();
-        }
-
-        private void CheckForUpdates()
-        {
-            try
-            {
-                // URL of the version file on GitHub
-                string versionInfoUrl = "https://hoi4gfxgenerator.neocities.org/version.txt";
-
-                // Get the information about the latest version
-                WebClient webClient = new WebClient();
-                string latestVersion = webClient.DownloadString(versionInfoUrl).Trim();
-
-                // Current version of the application
-                string currentVersion = Application.ProductVersion;
-
-                // Compare versions
-                if (latestVersion != currentVersion)
-                {
-                    DialogResult dialogResult = MessageBox.Show("An update is available. Latest version: " + latestVersion + ". Do you want to download it now?", "Update Available", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        // Open the download URL in the default browser
-                        System.Diagnostics.Process.Start("https://github.com/osleek/HOI4-GFX-Generator/releases/latest/download/HOI4.GFX.Generator.exe");
-                    }
-                }
-            }
-            catch
-            {
-                // Ничего не делать, если проверка обновлений не удалась
-            }
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -88,6 +49,7 @@ namespace HOI4_GFX_Generator
                     textBox1.Clear();
                     textBox2.Clear();
                 }
+
 
                 foreach (string filePath in openFileDialog1.FileNames)
                 {
@@ -103,17 +65,14 @@ namespace HOI4_GFX_Generator
 
                     string relativePath = fileDirectory.Remove(0, index).Replace("\\", "/");
 
-                    string prefix = fileName.StartsWith("idea_") || !checkBox3.Checked ? "" : "idea_";
-
                     string spriteType = $@"
-spriteType = {{
-    name = ""GFX_{prefix}{fileName}""
-    texturefile = ""{relativePath}/{fileName}.dds""
-}}";
+    spriteType = {{
+        name = ""GFX_{fileName}""
+        texturefile = ""{relativePath}/{fileName}.dds""
+    }}";
 
                     textBox1.AppendText(spriteType);
                     textBox1.AppendText(Environment.NewLine);
-
 
                     string spriteType2 = $@"
     SpriteType = {{
@@ -147,16 +106,9 @@ spriteType = {{
         }}
         legacy_lazy_load = no
     }}";
-                    if (!checkBox3.Checked)
-                    {
-                        textBox2.AppendText(spriteType2);
-                        textBox2.AppendText(Environment.NewLine);
-                    }
-                    else
-                    {
 
-                    }
-
+                    textBox2.AppendText(spriteType2);
+                    textBox2.AppendText(Environment.NewLine);
                 }
             }
         }
@@ -197,7 +149,7 @@ spriteType = {{
                 }
             }
         }
-
+        // Сало лох
         private void button5_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
@@ -216,7 +168,6 @@ spriteType = {{
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                // Если чекбокс не отмечен, очистите список файлов.
                 if (!checkBox2.Checked)
                 {
                     selectedFiles.Clear();
@@ -228,7 +179,6 @@ spriteType = {{
         }
         private void button7_Click(object sender, EventArgs e)
         {
-            // Если чекбокс не отмечен, очистите текстовые поля.
             if (!checkBox2.Checked)
             {
                 textBox3.Clear();
@@ -248,7 +198,6 @@ spriteType = {{
 
                 string relativePath = fileDirectory.Remove(0, index).Replace("\\", "/");
 
-                // Проверьте значения параметров из текстовых полей
                 int noOfFrames;
                 if (!int.TryParse(numericUpDown1.Text, out noOfFrames))
                 {
@@ -326,45 +275,8 @@ spriteType = {{
             Clipboard.SetText(textBox3.Text);
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                string versionInfoUrl = "https://hoi4gfxgenerator.neocities.org/version.txt";
-
-
-                WebClient webClient = new WebClient();
-                string latestVersion = webClient.DownloadString(versionInfoUrl).Trim();
-
-
-                string currentVersion = Application.ProductVersion;
-
-
-                if (latestVersion != currentVersion)
-                {
-                    DialogResult dialogResult = MessageBox.Show("An update is available. Latest version: " + latestVersion + ". Do you want to download it now?", "Update Available", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        System.Diagnostics.Process.Start("https://github.com/osleek/HOI4-GFX-Generator/releases/latest/download/HOI4.GFX.Generator.exe");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("You have the latest version of the application.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Failed to check for updates. Check your internet connection. Error: " + ex.Message);
-            }
-        }
     }
+    
 }
-
         
