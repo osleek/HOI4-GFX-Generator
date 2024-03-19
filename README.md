@@ -13,6 +13,7 @@ HOI4 GFX Generator is a tool designed to simplify the creation and editing of GF
 - Code Generation: After selecting files, the program automatically generates the corresponding GFX code for each file.
 - Copying and Saving: The generated code can be copied to the clipboard or saved to a file by pressing the "Copy" and "Save file" buttons respectively.
 - Saving Previous Text: If you want to save the previous text when selecting new files, make sure the "Save previous text" checkbox is checked.
+- Support for _idea: if you want to create a GFX file for ideas, then check the “Idea .gfx” checkbox.
 
 ![photo426923532_457261727](https://github.com/osleek/HOI4-GFX-Generator/assets/143276252/cd317d7a-1fe8-4ee1-bc7b-4fe07d75f2ac)
 
@@ -44,6 +45,7 @@ HOI4 GFX Generator - это инструмент, предназначенный
 - Генерация кода: после выбора файлов программа автоматически генерирует соответствующий GFX код для каждого файла.
 - Копирование и сохранение: сгенерированный код можно скопировать в буфер обмена или сохранить в файл, нажав соответственно кнопки "Copy" и "Save file".
 - Сохранение предыдущего текста: если вы хотите сохранить предыдущий текст при выборе новых файлов, убедитесь, что чекбокс "Save previous text" активен.
+- Поддержка _idea: если вы хотите сделать GFX файл для идей, то активируйте чекбокс "Idea .gfx"
 
 ### Вкладка “Animated Sprites”
 
